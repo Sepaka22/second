@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="utf-8" />
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta name="viewport" content="width=640, initial-scale=0.5, minimum-scale=0.5, maximum-scale=1.0, user-scalable=yes"> 
+	<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script><![endif]-->
+	<title>Добро пожаловать на рекламное digital-кладбище</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <meta property="og:title" content="Добро пожаловать на рекламное digital-кладбище" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="http://halloween.room485.com/#/" />
+  <meta property="og:image" content="http://halloween.room485.com/ss.jpg" />
+  <meta property="og:site_name" content="Добро пожаловать на рекламное digital-кладбище" />
+  <meta property="fb:admins" content="100000100177233" />
+  <meta property="og:description" content="В День всех святых предай земле то, что так долго пугало, бесило, вымораживало и вызывало нервный смех. Аминь" />
+  <meta name="description" content="В День всех святых предай земле то, что так долго пугало, бесило, вымораживало и вызывало нервный смех. Аминь">
+  
+	<link href="fonts/fonts.css?v=1.0" rel="stylesheet">
+  <link href="style.css?v=1.1" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="js/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="js/slick/slick-theme.css"/>
+</head>
+
+<body>
+	<div class="clouds parallax" id="clouds"></div>
+	<div class="moon parallax" id="moon"></div>
+	<div class="castles parallax" id="castles"></div>
+	<div class="trees parallax" id="trees"></div>
+	<div class="fence parallax" id="fence"></div>
+	<div class="grave3 parallax" id="grave3"></div>
+	<div class="grave2 parallax" id="grave2"></div>
+	<div class="grave1 parallax" id="grave1"></div>
+	<div class="grave parallax" id="grave">
+      <div>
+          <h1 style="font-size: 44px;">Digital кладбище</h1>
+          <h2 class="yellow">Здесь лежат клише </h2>
+          <div class="date yellow">26.10.16-01.11.16</div>
+      </div>
+  </div>
+  <div class="grave_slick parallax">
+      <?php
+        include 'safemysql.class.php';
+        $db     = new SafeMysql();
+        $table  = "phrase"; 
+        $list = $db->getAll("SELECT text, date FROM ?n GROUP BY text", $table);
+        shuffle($list);
+        $list = array_slice($list, 0, 30);
+        foreach($list as $string) {
+            echo '<div class="grave_slide">';      
+                echo '<h1>'.$string["text"].'</h1>'; 
+                echo '<div class="date yellow">'.$string["date"].'</div>'; 
+            echo '</div>'; 
+        } 
+      ?>
+  </div>
+
+	<div class="wrapper">
+        <div class="hand_phone gif"><img data-src="gif/hand_phone.gif"></div>
+        <div class="cat gif"><img data-src="gif/cat.gif"></div>
+        <div class="coffin gif"><img data-src="gif/coffin.gif"></div>
+        <div class="dracula gif"><img data-src="gif/dracula.gif"></div>
+        <div class="eye gif"><img data-src="gif/eye.gif"></div>
+        <div class="ghost gif"><img data-src="gif/ghost.gif"></div>
+        <div class="hands gif"><img data-src="gif/hands.gif"></div>
+        <div class="pot gif"><img data-src="gif/pot.gif"></div>
+        <div class="pumpkin gif"><img data-src="gif/pumpkin.gif"></div>
+        <div class="spider gif"><img data-src="gif/spider.gif"></div>
+        <div class="zombie_1 gif"><img data-src="gif/zombie_1.gif"></div>
+        <div class="zombie_2 gif"><img data-src="gif/zombie_2.gif"></div>
+        <div class="zombie_3 gif"><img data-src="gif/zombie_3.gif"></div>
+        
+        <div class="logo_blood"></div>
+        <div class="logo"><a href="http://room485.com" target="_blank"></a></div>
+        <!-- <div class="eye_blood"></div>
+        <div class="eye"></div> -->
+        <div class="home"></div>
+        <div class="gallery_button button">Прогуляться по кладбищу</div>
+        <div class="about_button_text">
+          <br>
+          Вместо «бабайки» в 2016 году рекламщики всё чаще пугают детей приходом правок от клиента. А сами клиенты перед встречей обводят проектор мелом дабы уберечь себя от мёртвых идей.
+          <div class="bone"></div>
+          Мы, креативная студия Room 485, уверены – нет ничего страшнее в нашей профессии, чем клише. Поэтому в День всех святых приглашаем тебя, дорогой коллега, на digital-кладбище.
+          <div class="bone"></div>
+          Здесь ты можешь похоронить профессиональные фразы, от которых у тебя кровь в жилах стынет.
+
+        </div>
+        <div class="about_button button">Манифест</div>
+
+        <div class="main">
+          <div class="welcome">
+              <h1 class="yellow">Откуда вы пришли<br>в загробный мир?</h1>
+              <div class="agency_button button">Агентство</div>
+              <div class="advertiser_button button">Клиент</div>
+          </div>
+          <div class="phrase">
+            <input class="input_button button" type="text" maxlength="50" value="Написать фразу"/>
+            <div class="input_button_approve"></div>
+            <div class="note">или выбрать из тех, что вспомнили мы</div>
+            <div class="phrases"></div>
+            <div class="select_button button">Выбрать фразу</div>
+            <div class="submit_button button">Похоронить фразу</div>
+
+          </div>
+        </div>
+	</div><!-- .wrapper -->
+   <div class="bg"></div>
+   <div class="prev"></div>
+   <div class="next"></div>
+   <div class="share">
+     <div class="title">Фраза похоронена</div>
+     <div class="img"></div>
+     <div class="ss">
+        Помянуть
+        <div class="vk"></div>
+        <div class="fb"></div>
+     </div>
+   </div>
+    <div class="phrases_advertiser">
+        <div class="text">Мы работали со всеми самыми крупными брендами</div>
+        <div class="line"></div>
+        <div class="text">Агентство полного цикла, но своего производства нет</div>
+        <div class="line"></div>
+        <div class="text">Мы решили посмотреть на проект шире брифа</div>
+        <div class="line"></div>
+        <div class="text">У нас своя система мотивации промоутеров</div>
+        <div class="line"></div>
+        <div class="text">Наша агентская комиссия составляет 7%</div>
+        <div class="line"></div>
+        <div class="text">Сейчас мы посчитали очень примерно</div>
+        <div class="line"></div>
+        <div class="text">Надеемся на плодотворное сотрудничество в будущем</div>
+    </div>
+    <div class="phrases_agency">
+        <div class="text">Нам нужен WOW-эффект</div>
+        <div class="line"></div>
+        <div class="text">Мы не хотим вас ограничивать, поэтому не озвучиваем бюджет</div>
+        <div class="line"></div>
+        <div class="text">Вам самому нравится?</div>
+        <div class="line"></div>
+        <div class="text">…и выигрывай призы!</div>
+        <div class="line"></div>
+        <div class="text">Давайте разбавим чем-нибудь макет</div>
+        <div class="line"></div>
+        <div class="text">Мы с коллегами немного поштурмили</div>
+        <div class="line"></div>
+        <div class="text">Знакомьтесь, это наш креативный консультант</div>
+        <div class="line"></div>
+        <div class="text">Вы выиграли тендер, но нужно все изменить</div>
+    </div>
+  
+    <script src="http://connect.facebook.net/en_US/all.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/lettering.js"></script>
+    <script src="js/easing.js"></script>
+    <script src="js/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="js/slick/slick.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-51568105-2', 'auto');
+      ga('send', 'pageview');
+    
+    </script>
+
+</body>
+</html>
